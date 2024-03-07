@@ -1,0 +1,14 @@
+version: 2
+
+models:
+  - name: plan
+    description: ""
+    columns:
+      - name: id
+      - name: amount
+      - name: active
+      - name: billing_scheme
+      - name: currency
+      - name: interval
+      - name: interval_count
+      - name: interval_type

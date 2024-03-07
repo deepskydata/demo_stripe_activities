@@ -1,0 +1,14 @@
+version: 2
+
+sources:
+  - name: demo_fivetran_stripe
+    tables:
+      - name: invoice
+        description: ""
+      - name: plan
+        description: ""
+      - name: subscription_history
+        description: ""
+      - name: subscription_item
+        description: ""
+    database:

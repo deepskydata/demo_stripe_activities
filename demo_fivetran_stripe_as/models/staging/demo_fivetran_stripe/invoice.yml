@@ -1,0 +1,19 @@
+version: 2
+
+models:
+  - name: invoice
+    description: ""
+    columns:
+      - name: id
+      - name: fivetran_start
+      - name: auto_advance
+      - name: collection_method
+      - name: currency
+      - name: customer
+      - name: period_end
+      - name: period_start
+      - name: status
+      - name: subscription
+      - name: total
+      - name: created
+      - name: paid

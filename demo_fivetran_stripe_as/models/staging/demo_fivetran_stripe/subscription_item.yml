@@ -1,0 +1,12 @@
+version: 2
+
+models:
+  - name: subscription_item
+    description: ""
+    columns:
+      - name: id
+      - name: subscription_id
+      - name: plan_id
+      - name: fivetran_start
+      - name: created
+      - name: quantity

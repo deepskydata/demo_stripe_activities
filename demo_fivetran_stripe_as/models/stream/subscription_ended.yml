@@ -1,0 +1,11 @@
+version: 2
+
+models:
+  - name: subscription_ended
+    description: ""
+    columns:
+      - name: activity_id
+      - name: ts
+      - name: activity
+      - name: customer
+      - name: json_field

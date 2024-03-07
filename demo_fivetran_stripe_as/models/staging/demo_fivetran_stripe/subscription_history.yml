@@ -1,0 +1,25 @@
+version: 2
+
+models:
+  - name: subscription_history
+    description: ""
+    columns:
+      - name: id
+      - name: fivetran_start
+      - name: default_payment_method_id
+      - name: invoice_id
+      - name: application_fee_percent
+      - name: billing_cycle_anchor
+      - name: cancel_at
+      - name: cancel_at_period_end
+      - name: created
+      - name: collection_method
+      - name: current_period_end
+      - name: current_period_start
+      - name: customer
+      - name: days_until_due
+      - name: ended_at
+      - name: livemode
+      - name: quantity
+      - name: start_date
+      - name: status
