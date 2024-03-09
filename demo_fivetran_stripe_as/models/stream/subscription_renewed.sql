@@ -1,6 +1,6 @@
 with subscription_renewed as (
   select
-  id as activity_id,
+  cast(id as string) as activity_id,
   period_start as ts,
   "subscription renewed" as activity,
   customer,
