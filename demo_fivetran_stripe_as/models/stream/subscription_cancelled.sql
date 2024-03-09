@@ -2,8 +2,8 @@ with subscription_cancelled_base as (
   SELECT distinct
   id,
   cancel_at,
-  customer
-
+  customer,
+  row_number() OVER (PARTITION BY customer order by cancel_at) as rank
 
   FROM {{ref('subscription_history')}}
   where cancel_at is not null
@@ -18,6 +18,7 @@ subscription_cancelled_prep as (
   from subscription_cancelled_base base
   left join {{ref('subscription_item')}} item on base.id = item.subscription_id
   left join {{ref('plan')}} plan on item.plan_id = plan.id
+  where rank = 1
 ),
 
 subscription_cancelled as (

@@ -1,17 +1,19 @@
 with subscription_renewed as (
   select
-  cast(id as string) as activity_id,
+  STRING(TO_JSON(id)) as activity_id,
   period_start as ts,
   "subscription renewed" as activity,
   customer,
-  JSON_OBJECT("subscription_amount",total,"subscription_currency",currency) as json_field
+  JSON_OBJECT("subscription_amount",total,"subscription_currency",currency) as json_field,
+  row_number() OVER (PARTITION BY customer order by period_start) as rank
   FROM {{ref('invoice')}}
-  where id not in (
-    select
-    min(id) OVER(PARTITION BY subscription order by period_start)
-    from {{ref('invoice')}}
-  )
-  
 )
 
-select * from subscription_renewed
+select
+activity_id,
+ts,
+activity,
+customer,
+json_field
+from subscription_renewed
+where rank > 1

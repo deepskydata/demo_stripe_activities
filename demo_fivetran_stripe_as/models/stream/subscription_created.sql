@@ -2,8 +2,8 @@ with subscription_created_base as (
   SELECT distinct
   id,
   start_date,
-  customer
-
+  customer,
+  row_number() OVER (PARTITION BY customer order by start_date) as rank
   from {{ref('subscription_history')}}
   
 ),
@@ -17,6 +17,7 @@ subscription_created_prep as (
   from subscription_created_base base
   left join {{ref('subscription_item')}} item on base.id = item.subscription_id
   left join {{ref('plan')}} plan on item.plan_id = plan.id
+  where base.rank = 1
 ),
 
 subscription_created as (

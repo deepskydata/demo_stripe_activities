@@ -24,7 +24,7 @@ subscription_ended as (
   select
   id as activity_id,
   ended_at as ts,
-  "subscription cancelled" as activity,
+  "subscription ended" as activity,
   customer,
   JSON_OBJECT("subscription_amount",amount,"subscription_currency",currency,"subscription_interval",interval_type) as json_field
   from subscription_ended_prep
