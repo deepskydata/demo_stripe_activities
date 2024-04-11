@@ -31,3 +31,4 @@ subscription_created as (
 )
 
 select * from subscription_created
+where ts < CURRENT_TIMESTAMP()

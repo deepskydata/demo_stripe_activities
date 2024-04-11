@@ -32,3 +32,4 @@ subscription_cancelled as (
 )
 
 select * from subscription_cancelled
+where ts < CURRENT_TIMESTAMP()

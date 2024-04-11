@@ -31,3 +31,4 @@ subscription_ended as (
 )
 
 select * from subscription_ended
+where ts < CURRENT_TIMESTAMP()

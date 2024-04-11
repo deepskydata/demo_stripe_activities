@@ -16,4 +16,4 @@ activity,
 customer,
 json_field
 from subscription_renewed
-where rank > 1
+where rank > 1 and ts < CURRENT_TIMESTAMP()

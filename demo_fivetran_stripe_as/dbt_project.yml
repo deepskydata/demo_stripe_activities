@@ -33,5 +33,5 @@ clean-targets:         # directories to be removed by `dbt clean`
 models:
   demo_fivetran_stripe_as:
     # Config indicated by + and applies to all files under models/example/
-    example:
-      +materialized: view
+    stream:
+      +materialized: table
